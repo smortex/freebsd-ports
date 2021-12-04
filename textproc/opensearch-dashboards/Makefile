@@ -19,7 +19,7 @@ OPTIONS_DEFINE= PDF
 OPTIONS_DEFAULT= PDF
 
 PDF_DESC=	Install Chromium (PDF support)
-PDF_RUN_DEPENDS= chromium
+PDF_RUN_DEPENDS= chrome:www/chromium 
 
 _DEVDIR=	${WRKDIR}/.devdir
 
