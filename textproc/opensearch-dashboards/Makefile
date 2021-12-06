@@ -15,11 +15,11 @@ BUILD_DEPENDS=	npm-node14>0:www/npm-node14
 USES=		nodejs:14,build,run python:build
 USE_RC_SUBR=	${PORTNAME}
 
-OPTIONS_DEFINE= PDF	
-OPTIONS_DEFAULT= PDF
+OPTIONS_DEFINE= CHROME	
+OPTIONS_DEFAULT= CHROME
 
-PDF_DESC=	Install Chromium (PDF support)
-PDF_RUN_DEPENDS= chrome:www/chromium 
+CHROME_DESC=	Add dependency on www/chromium (required for PDF reports)
+CHROME_RUN_DEPENDS= chrome:www/chromium 
 
 _DEVDIR=	${WRKDIR}/.devdir
 
