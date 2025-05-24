@@ -1,5 +1,5 @@
-PORTNAME=	puppet
-PORTVERSION=	8.10.0
+PORTNAME=	openvox-agent
+PORTVERSION=	8.18.1
 CATEGORIES=	sysutils
 MASTER_SITES=   https://forge.puppet.com/v3/files/:forge
 PKGNAMESUFFIX=	8
@@ -25,7 +25,8 @@ RUN_DEPENDS=	rubygem-concurrent-ruby>1.0:devel/rubygem-concurrent-ruby \
 
 USES=		cpe ruby
 USE_GITHUB=	yes
-GH_ACCOUNT=	puppetlabs
+GH_ACCOUNT=	OpenVoxProject
+GH_PROJECT=	puppet
 
 CONFLICTS_INSTALL=	openvox-agent[0-9] puppet[0-9]
 PLIST_SUB=	PORTVERSION="${PORTVERSION}"
@@ -38,6 +39,9 @@ USERS=		puppet
 GROUPS=		puppet
 SUB_FILES+=	pkg-message
 SUB_LIST=	RUBY=${RUBY}
+
+DATADIR=	${PREFIX}/share/puppet
+ETCDIR=		${PREFIX}/etc/puppet
 
 OPTIONS_DEFINE=		DOCS EXAMPLES
 
@@ -114,10 +118,10 @@ post-install:
 		> ${STAGEDIR}${ETCDIR}/puppet.conf-dist
 	@${ECHO} ${STAGEDIR}${RUBY_SITELIBDIR}/puppet.rb | \
 		${SED} 's,^${STAGEDIR}${PREFIX}/,,' >> ${TMPPLIST}
-	@${FIND} ${STAGEDIR}${RUBY_SITELIBDIR}/${PORTNAME} -type f | \
+	@${FIND} ${STAGEDIR}${RUBY_SITELIBDIR}/puppet -type f | \
 		${SED} 's,^${STAGEDIR}${PREFIX}/,,' >> ${TMPPLIST}
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/ruby/gems/${RUBY_VER}/specifications
-	${INSTALL_DATA} ${WRKSRC}/puppet.gemspec ${STAGEDIR}${PREFIX}/lib/ruby/gems/${RUBY_VER}/specifications/${PORTNAME}-${PORTVERSION}.gemspec
+	${INSTALL_DATA} ${WRKSRC}/puppet.gemspec ${STAGEDIR}${PREFIX}/lib/ruby/gems/${RUBY_VER}/specifications/puppet-${PORTVERSION}.gemspec
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
