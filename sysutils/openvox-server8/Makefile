@@ -1,8 +1,7 @@
 PORTNAME=	openvox-server
-PORTVERSION=	8.7.0
+PORTVERSION=	8.8.1
 CATEGORIES=	sysutils java
-MASTER_SITES=	https://artifacts.voxpupuli.org/puppetserver/${PORTVERSION}/
-DISTNAME=	puppetserver-${PORTVERSION}
+MASTER_SITES=	https://artifacts.voxpupuli.org/${PORTNAME}/${PORTVERSION}/
 PKGNAMESUFFIX=	8
 
 MAINTAINER=	puppet@FreeBSD.org
@@ -23,6 +22,7 @@ RUN_DEPENDS=	bash>=0:shells/bash \
 USES=		ruby java shebangfix
 JAVA_VERSION=	11+
 USE_RC_SUBR=	puppetserver
+WRKSRC=		${WRKDIR}/puppetserver-${PORTVERSION}
 
 NO_ARCH=	yes
 NO_BUILD=	yes
