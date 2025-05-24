@@ -1,9 +1,8 @@
 PORTNAME=	openvoxdb
-PORTVERSION=	8.8.1
+PORTVERSION=	8.9.1
 CATEGORIES=	databases java
-MASTER_SITES=	https://artifacts.voxpupuli.org/puppetdb/${PORTVERSION}/
+MASTER_SITES=	https://artifacts.voxpupuli.org/${PORTNAME}/${PORTVERSION}/
 PKGNAMESUFFIX=	8
-DISTNAME=	puppetdb-${PORTVERSION}
 
 MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	PuppetDB storeconfigs backend
@@ -31,6 +30,7 @@ SHEBANG_FILES=	ext/bin/puppetdb \
 JAVA_VERSION=	11+
 NO_ARCH=	yes
 NO_BUILD=	yes
+WRKSRC=		${WRKDIR}/puppetdb-${PORTVERSION}
 
 USERS=		puppetdb
 GROUPS=		puppetdb
