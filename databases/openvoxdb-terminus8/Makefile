@@ -1,7 +1,7 @@
-PORTNAME=	puppetdb-terminus
+PORTNAME=	openvoxdb-terminus
 PORTVERSION=	8.8.1
 CATEGORIES=	databases ruby
-MASTER_SITES=	https://downloads.puppetlabs.com/puppetdb/
+MASTER_SITES=	https://artifacts.voxpupuli.org/puppetdb/${PORTVERSION}/
 PKGNAMESUFFIX=	8
 DISTNAME=	puppetdb-${PORTVERSION}
 
